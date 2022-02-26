@@ -1,0 +1,19 @@
+
+#prbarContainer{
+    position: fixed;
+    z-index: 100;
+    background: rgba(255,255,255,0.05);
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 5px;
+    border-radius:2.5px;
+}
+#prBar{
+    background: linear-gradient(to left, rgb(34, 61, 87), rgb(11, 29, 46));
+    transform-origin: top left;
+    transform: scale(0,0);
+    opacity: 0;
+    height: 2px; border-radius:2.5px;
+
+}
