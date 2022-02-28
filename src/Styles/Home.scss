@@ -8,9 +8,13 @@ $blue:#3a506fff;
     background-color: #f8f8f8ff;
 }
 .home-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 1500px;
-    padding: 0px 4%;
-    outline: 2px solid brown;
-    height: 800px;
-    width: 100%;
+    padding: 20px 4%;
+    font-family: 'Manrope';
+    height: 500px;
+    
+   
 }
