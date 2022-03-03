@@ -4,7 +4,9 @@ import axios from "axios";
 import styled from "styled-components";
 
 import Calender from "../Assets/icons/calender.svg";
-import Loading from "./Loading";
+import { Loading, Loading1 } from "./Loading";
+import PieChart from "./PieChart";
+import ErrorSvg from "./ErrorSvg";
 
 export const DateTime = () => {
   var curentDate = new Date();
@@ -24,8 +26,9 @@ export const DateTime = () => {
 };
 
 function Charts(props) {
-  const [Users, setUsers] = useState([]);
+  const [Comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -33,10 +36,11 @@ function Charts(props) {
         const res = await axios.get(
           "https://jsonplaceholder.typicode.com/comments"
         );
-        setUsers(res.data);
+        setComments(res.data);
         setLoading(false);
       } catch (err) {
         console.log(err);
+        setErr(true);
       }
     }
     fetchData();
@@ -54,12 +58,12 @@ function Charts(props) {
   }
 
   //adding property view containing random number to array
-  Users.forEach((e) => {
+  Comments.forEach((e) => {
     e.view = getRandom();
   });
   //getting first twenty data
-  function NewUsers() {
-    return Users.slice(0, 20).map((u) => {
+  function NewComments() {
+    return Comments.slice(0, 20).map((u) => {
       return u;
     });
   }
@@ -90,13 +94,14 @@ function Charts(props) {
 
   //Adding the colors to the new data
 
-  const NewUserWithColors = NewUsers().map((u) => ({
+  const NewCommentWithColors = NewComments().map((u) => ({
     ...u,
     color: ColorData.find((x) => x.id === u.id).colors,
   }));
 
-  console.log(NewUserWithColors);
+  console.log(NewCommentWithColors);
 
+  //Bar Chart
   const MakeBar = styled.div`
     height: ${(props) => props.height};
     width: 30px;
@@ -105,25 +110,44 @@ function Charts(props) {
     border-top-right-radius: 10px;
     background-color: ${(props) => props.color};
   `;
+  const Bar = () => {
+    return (
+      <>
+        {NewCommentWithColors.map((i, key) => (
+          <MakeBar key={key} color={`${i.color}`} height={`${i.view * 2}px`} />
+        ))}
+      </>
+    );
+  };
+
+  //PieChart
 
   return (
     <div className="chartcont">
       <div className="flex-card-cont">
-        <div className="card users-card">
-          <span>Users</span>
-          {loading ? <Loading /> : <h1>{NewUsers().length}</h1>}
+        <div className="card comments-card">
+          <span>Comments</span>
+          {err ? (
+            <ErrorSvg />
+          ) : (
+            <>{loading ? <Loading /> : <h1>{NewComments().length}</h1>}</>
+          )}
         </div>
 
         <div className="card bar-chart">
-          <div style={{ display: "flex", alignItems: "baseline" }}>
-            {NewUserWithColors.map((i,key) => (
-              <MakeBar key={key} color={`${i.color}`} height={`${i.view * 2}px`} />
-            ))}
-          </div>
+          {loading ? (
+            <Loading1 />
+          ) : (
+            <div style={{ display: "flex", alignItems: "baseline", maxWidth:"100%",width:350 }}>
+              <Bar />
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="card pie-chart"></div>
+      <div className="card pie-chart">
+        {loading ? <Loading1 /> : <PieChart data={NewCommentWithColors} />}
+      </div>
     </div>
   );
 }
