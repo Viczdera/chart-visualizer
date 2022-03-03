@@ -104,17 +104,39 @@ function Charts(props) {
   //Bar Chart
   const MakeBar = styled.div`
     height: ${(props) => props.height};
-    width: 30px;
-    margin: 1px;
+    margin: 0px 1px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-bottom: 2px solid black;
     background-color: ${(props) => props.color};
+  `;
+  const Number = styled.span`
+    font-size: ${(props) => props.size};
+    text-align: center;
+    color: ${(props) => props.color};
   `;
   const Bar = () => {
     return (
       <>
         {NewCommentWithColors.map((i, key) => (
-          <MakeBar key={key} color={`${i.color}`} height={`${i.view * 2}px`} />
+          <div
+            style={{
+              width: "20%",
+              alignSelf: "end",
+            }}
+          >
+            <Number size="10px" color={`${i.color}`}>
+              {i.view}
+            </Number>
+            <MakeBar
+              key={key}
+              color={`${i.color}`}
+              height={`${i.view * 2}px`}
+            />
+            <Number size="8px" color={`#000`}>
+              {i.id}
+            </Number>
+          </div>
         ))}
       </>
     );
@@ -138,11 +160,22 @@ function Charts(props) {
           {loading ? (
             <Loading1 />
           ) : (
-            <div style={{ display: "flex", alignItems: "baseline", maxWidth:"100%",width:350 }}>
-              <Bar />
-            </div>
+            <>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  maxWidth: "100%",
+                  width: "100%",
+                }}
+              >
+                <Bar />
+              </div>
+            </>
           )}
+           <span>id</span>
         </div>
+       
       </div>
 
       <div className="card pie-chart">

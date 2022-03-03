@@ -14,7 +14,6 @@ $darkblue: rgb(42, 60, 85);
 }
 .card {
   padding: 10px;
-  // box-shadow: rgba(123, 209, 224, 0.486) 0px 2px 5px -1px,  rgba(123, 209, 224, 0.507) 0px 1px 3px -1px;
   box-shadow: rgba(102, 170, 182, 0.473) 0px 1px 0px,
     rgba(87, 152, 163, 0.164) 0px 0px 8px;
   border-radius: 15px;
@@ -50,9 +49,13 @@ $darkblue: rgb(42, 60, 85);
    
   }
   .bar-chart{
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
     max-width: 100%;
     margin-bottom: 30px;
+    min-width: 320px;
+    
   }
   .pie-chart{
     min-width: 240px;
@@ -63,19 +66,19 @@ $darkblue: rgb(42, 60, 85);
 
 }
 
-@media only screen and (min-width:880px) {
+@media only screen and (min-width:1000px) {
     .chartcont{
         display: flex;
         flex-direction: row !important;
         .bar-chart{
           margin-right: 20px;
-          min-width: 400px;
+          min-width: 450px;
           min-height: 300px;
           margin-bottom: 0px;
         }
         .pie-chart{
           
-          min-width: 400px;
+          min-width: 350px;
           min-height: 450px;
           
     
