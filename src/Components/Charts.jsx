@@ -184,8 +184,8 @@ function Charts(props) {
           {loading ? <Loading1 /> : <PieChart data={NewCommentWithColors} />}
         </div>
       </div>
-      <Table data={NewComments()} /> 
-      <Cards data={NewComments()} />
+      <Table data={NewComments()} loading={loading} /> 
+      <Cards data={NewComments()} loading={loading} />
     </div>
   );
 }
