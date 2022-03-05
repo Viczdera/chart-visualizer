@@ -1,0 +1,36 @@
+
+.table-cont{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    // overflow-x:scroll;
+    // overflow: scroll;
+  //  outline: 2px solid firebrick;
+    padding-left: 10px;
+    width: 80%;
+    overflow: hidden;
+}table {
+  table-layout: fixed; 
+  width: 100%;
+  *margin-left: -100px;/*ie7*/
+}
+td, th {
+  vertical-align: top;
+  border-top: 1px solid #ccc;
+  padding:10px;
+  //width:50px;
+}
+th {
+  position:absolute;
+  *position: relative;
+  left:0; 
+  width:100px;
+}
+.outer {position:relative}
+.inner {
+  overflow-x:scroll;
+  overflow-y:visible;
+  width:300px; 
+  min-width: 280px;
+  margin-left:100px;
+}

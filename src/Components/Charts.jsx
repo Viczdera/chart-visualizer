@@ -7,6 +7,8 @@ import Calender from "../Assets/icons/calender.svg";
 import { Loading, Loading1 } from "./Loading";
 import PieChart from "./PieChart";
 import ErrorSvg from "./ErrorSvg";
+import Table from "./Table";
+import Cards from "./Cards";
 
 export const DateTime = () => {
   var curentDate = new Date();
@@ -145,42 +147,45 @@ function Charts(props) {
   //PieChart
 
   return (
-    <div className="chartcont">
-      <div className="flex-card-cont">
-        <div className="card comments-card">
-          <span>Comments</span>
-          {err ? (
-            <ErrorSvg />
-          ) : (
-            <>{loading ? <Loading /> : <h1>{NewComments().length}</h1>}</>
-          )}
+    <div className="data-display-cont">
+      <div className="chartcont">
+        <div className="flex-card-cont">
+          <div className="card comments-card">
+            <span>Comments</span>
+            {err ? (
+              <ErrorSvg />
+            ) : (
+              <>{loading ? <Loading /> : <h1>{NewComments().length}</h1>}</>
+            )}
+          </div>
+
+          <div className="card bar-chart">
+            {loading ? (
+              <Loading1 />
+            ) : (
+              <>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    maxWidth: "100%",
+                    width: "100%",
+                  }}
+                >
+                  <Bar />
+                </div>
+              </>
+            )}
+            {loading ? "" : <span>id</span>}
+          </div>
         </div>
 
-        <div className="card bar-chart">
-          {loading ? (
-            <Loading1 />
-          ) : (
-            <>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  maxWidth: "100%",
-                  width: "100%",
-                }}
-              >
-                <Bar />
-              </div>
-            </>
-          )}
-           <span>id</span>
+        <div className="card pie-chart">
+          {loading ? <Loading1 /> : <PieChart data={NewCommentWithColors} />}
         </div>
-       
       </div>
-
-      <div className="card pie-chart">
-        {loading ? <Loading1 /> : <PieChart data={NewCommentWithColors} />}
-      </div>
+      {/* <Table data={NewComments()} /> */}
+      <Cards data={NewComments()} />
     </div>
   );
 }

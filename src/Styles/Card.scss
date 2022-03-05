@@ -1,0 +1,15 @@
+.card-cont{
+  // outline: 2px solid gold;
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0px 20px;
+}
+.card{
+    width: 30%;
+    margin: 5px 5px;
+}
+.data-card{
+    min-width: 195px
+}
