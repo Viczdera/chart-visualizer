@@ -104,7 +104,7 @@ function Charts(props) {
   console.log(NewCommentWithColors);
 
   //Bar Chart
-  const MakeBar = styled.div`
+  const SingleBar = styled.div`
     height: ${(props) => props.height};
     margin: 0px 1px;
     border-top-left-radius: 10px;
@@ -124,13 +124,15 @@ function Charts(props) {
           <div
             style={{
               width: "20%",
-              alignSelf: "end",
+             display: "flex",
+             flexDirection:"column",
+             justifyContent: "flex-end"
             }}
           >
             <Number size="10px" color={`${i.color}`}>
               {i.view}
             </Number>
-            <MakeBar
+            <SingleBar
               key={key}
               color={`${i.color}`}
               height={`${i.view * 2}px`}
@@ -143,8 +145,6 @@ function Charts(props) {
       </>
     );
   };
-
-  //PieChart
 
   return (
     <div className="data-display-cont">
@@ -167,9 +167,9 @@ function Charts(props) {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "baseline",
                     maxWidth: "100%",
                     width: "100%",
+                    
                   }}
                 >
                   <Bar />
