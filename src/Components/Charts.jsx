@@ -77,7 +77,7 @@ function Charts(props) {
     { id: 4, colors: "#42cc7dff" },
     { id: 5, colors: "#8674feff" },
     { id: 6, colors: "#fe7690ff" },
-    { id: 7, colors: "##b53a40" },
+    { id: 7, colors: "#b53a40" },
     { id: 8, colors: "#446873" },
     { id: 9, colors: "#db7b14" },
     { id: 10, colors: "#282230" },
