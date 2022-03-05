@@ -1,15 +1,24 @@
-.card-cont{
+.card-cont {
   // outline: 2px solid gold;{/* <Table data={NewComments()} /> */}
-    width: 90%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    padding: 0px 20px;
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0px 20px;
 }
-.card{
-    width: 30%;
-    margin: 5px 5px;
+.card {
+  width: 30%;
+  margin: 5px 5px;
 }
-.data-card{
-    min-width: 195px
+.data-card {
+  min-width: 300px;
+
+  p {
+    text-align: justify;
+  }
+}
+@media only screen and (min-width: 550px) {
+  .data-card {
+    min-width: 210px;
+  }
 }

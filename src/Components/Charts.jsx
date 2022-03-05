@@ -7,7 +7,7 @@ import Calender from "../Assets/icons/calender.svg";
 import { Loading, Loading1 } from "./Loading";
 import PieChart from "./PieChart";
 import ErrorSvg from "./ErrorSvg";
-//import Table from "./Table";
+import Table from "./Table";
 import Cards from "./Cards";
 
 export const DateTime = () => {
@@ -77,20 +77,20 @@ function Charts(props) {
     { id: 4, colors: "#42cc7dff" },
     { id: 5, colors: "#8674feff" },
     { id: 6, colors: "#fe7690ff" },
-    { id: 7, colors: "#ff9066ff" },
-    { id: 8, colors: "#315fecff" },
-    { id: 9, colors: "#ffca41ff" },
-    { id: 10, colors: "#42cc7dff" },
-    { id: 11, colors: "#fe7690ff" },
-    { id: 12, colors: "#ff9066ff" },
-    { id: 13, colors: "#315fecff" },
-    { id: 14, colors: "#ffca41ff" },
-    { id: 15, colors: "#42cc7dff" },
-    { id: 16, colors: "#8674feff" },
-    { id: 17, colors: "#ff9066ff" },
-    { id: 18, colors: "#315fecff" },
-    { id: 19, colors: "#ffca41ff" },
-    { id: 20, colors: "#42cc7dff" },
+    { id: 7, colors: "##b53a40" },
+    { id: 8, colors: "#446873" },
+    { id: 9, colors: "#db7b14" },
+    { id: 10, colors: "#282230" },
+    { id: 11, colors: "#63250a" },
+    { id: 12, colors: "#348e9e" },
+    { id: 13, colors: "#b0073d" },
+    { id: 14, colors: "#0e872a" },
+    { id: 15, colors: "#c2bb5b" },
+    { id: 16, colors: "#2b1111" },
+    { id: 17, colors: "#e67a3c" },
+    { id: 18, colors: "#85807d" },
+    { id: 19, colors: "#ff0808" },
+    { id: 20, colors: "#1f6652" },
     // colors:["#8674feff "],
   ];
 
@@ -184,7 +184,7 @@ function Charts(props) {
           {loading ? <Loading1 /> : <PieChart data={NewCommentWithColors} />}
         </div>
       </div>
-      
+      <Table data={NewComments()} /> 
       <Cards data={NewComments()} />
     </div>
   );
