@@ -7,7 +7,7 @@ import Calender from "../Assets/icons/calender.svg";
 import { Loading, Loading1 } from "./Loading";
 import PieChart from "./PieChart";
 import ErrorSvg from "./ErrorSvg";
-import Table from "./Table";
+//import Table from "./Table";
 import Cards from "./Cards";
 
 export const DateTime = () => {
@@ -184,7 +184,7 @@ function Charts(props) {
           {loading ? <Loading1 /> : <PieChart data={NewCommentWithColors} />}
         </div>
       </div>
-      {/* <Table data={NewComments()} /> */}
+      
       <Cards data={NewComments()} />
     </div>
   );
