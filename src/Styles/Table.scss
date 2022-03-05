@@ -9,6 +9,7 @@ $darkblue: rgb(42, 60, 85);
   //outline: 2px solid firebrick;
   padding-left: 10px;
   width: 80%;
+  
   overflow: hidden;
   min-height: 200px;
   min-width: 300px;
@@ -16,6 +17,9 @@ $darkblue: rgb(42, 60, 85);
 table {
   border-collapse: collapse;
   width: 100%;
+  min-width: 320px;
+  
+  
   .id{
     font-weight: bold;
   }

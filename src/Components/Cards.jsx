@@ -19,6 +19,7 @@ const Cards = ({ data }) => {
           <h5>{card.name}</h5>
           <h3>Email</h3>
           <h5>{card.name}</h5>
+          <h3>Body</h3>
           <p>{card.body}</p>
         </div>
       ))}
